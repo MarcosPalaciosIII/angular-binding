@@ -1,3 +1,26 @@
-<p>
-  message works!
-</p>
+<h2> Post a Message </h2>
+
+<label for="name-input"> What's your name? </label>
+<input id="name-input" placeholder="e.g. Bruce Wayne"   [(ngModel)]="theUser.name" />
+
+<div *ngIf="theUser.name">
+  <p>
+    Hello, {{ theUser.name }}
+  </p>
+
+  <label for="user-message"> Type Your Message </label>
+  <textarea id="user-message" placeholder="e.g. Tacos are great!"   [(ngModel)]="theUser.message" ></textarea>
+
+  <p *ngIf="!isClean()">
+    We need to wash out your mouth with soap.
+  </p>
+
+  <button *ngIf="!isClean()" >
+    Submit
+  </button>
+
+  <hr />
+
+  <food-select-widget></food-select-widget>
+
+</div>   <!-- *ngIf="theUser" -->
